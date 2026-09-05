@@ -28,10 +28,9 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
-/* Navbar */
+/* Navegación limpiecita y legible */
 .navbar {
-    background: rgba(10, 17, 40, 0.9);
+    background: rgba(10, 17, 40, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
@@ -50,31 +49,39 @@ body {
 .logo {
     font-size: 1.4rem;
     font-weight: 800;
-    color: var(--text-main);
-    text-decoration: none;
-}
-
-.logo span { color: var(--accent); }
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 25px;
-}
-
-.nav-links li a {
     color: #ffffff !important;
     text-decoration: none;
+}
+
+/* Quitar los puntos y alineación */
+.nav-links {
+    display: flex;
+    list-style: none !important; /* Quita los puntos */
+    align-items: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    list-style: none !important; /* Refuerza quitar los puntos */
+}
+
+/* Forzar color blanco y quitar morado de links visitados */
+.nav-links li a,
+.nav-links li a:visited,
+.nav-links li a:active,
+.nav-links li a:link {
+    color: #ffffff !important;
+    text-decoration: none !important;
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-    color: var(--accent) !important;
+    color: #00d2ff !important; /* Cambia a azul claro brillante al pasar el cursor */
 }
-
 /* Buttons */
 .btn-primary {
     background: var(--primary);
