@@ -28,7 +28,8 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-/* Navegación limpiecita y legible */
+
+/* Navbar */
 .navbar {
     background: rgba(10, 17, 40, 0.95);
     backdrop-filter: blur(10px);
@@ -53,10 +54,9 @@ body {
     text-decoration: none;
 }
 
-/* Quitar los puntos y alineación */
 .nav-links {
     display: flex;
-    list-style: none !important; /* Quita los puntos */
+    list-style: none !important;
     align-items: center;
     gap: 25px;
     margin: 0;
@@ -64,10 +64,9 @@ body {
 }
 
 .nav-links li {
-    list-style: none !important; /* Refuerza quitar los puntos */
+    list-style: none !important;
 }
 
-/* Forzar color blanco y quitar morado de links visitados */
 .nav-links li a,
 .nav-links li a:visited,
 .nav-links li a:active,
@@ -80,8 +79,9 @@ body {
 }
 
 .nav-links li a:hover {
-    color: #00d2ff !important; /* Cambia a azul claro brillante al pasar el cursor */
+    color: var(--accent) !important;
 }
+
 /* Buttons */
 .btn-primary {
     background: var(--primary);
