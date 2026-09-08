@@ -327,3 +327,32 @@ body {
     .hero h1 { font-size: 2rem; }
     .nav-links { display: none; }
 }
+/* Botón de LinkedIn con azul oficial garantizado */
+a.btn-linkedin,
+a.btn-linkedin:visited,
+a.btn-linkedin:active,
+a.btn-linkedin:link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    background-color: #0a66c2 !important; /* Azul oficial LinkedIn */
+    color: #ffffff !important;            /* Texto blanco puro */
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(10, 102, 194, 0.4) !important;
+}
+
+a.btn-linkedin:hover {
+    background-color: #00d2ff !important; /* Cambia a azul cyan brillante al pasar el cursor */
+    color: #0a1128 !important;            /* Texto oscuro para alto contraste */
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0, 210, 255, 0.4) !important;
+}
+
+a.btn-linkedin svg {
+    fill: currentColor !important;
+}
