@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const responseDiv = document.getElementById('form-response');
     const submitBtn = document.getElementById('btn-submit');
 
-    // Cambia esta URL por el Webhook de Albato cuando lo tengas configurado
-    const ALBATO_WEBHOOK_URL = 'https://webhook.albato.com/tu-webhook-aqui';
+    // Cambia esta URL por el Webhook de MAKE cuando lo tengas configurado
+    const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/278hs863s66wynlk6rx6wsmgg936tcpj';
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            // Envío al webhook de Albato
-            const response = await fetch(ALBATO_WEBHOOK_URL, {
+            // Envío al webhook de MAKE
+            const response = await fetch(MAKE_WEBHOOK_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
