@@ -3,26 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad | Abel Naupa</title>
+    <title>Política de Privacidad | Abel Náupa</title>
     <style>
-        body { font-family: system-ui, sans-serif; background-color: #0d1117; color: #e6edf3; padding: 40px 20px; max-width: 800px; margin: 0 auto; line-height: 1.6; }
-        h1 { color: #00d2ff; }
-        a { color: #0066ff; }
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            background-color: #0d1117; 
+            color: #e6edf3; 
+            padding: 40px 20px; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            line-height: 1.6; 
+        }
+
+        h1 { 
+            color: #00d2ff; 
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 30px;
+        }
+
+        /* Contenedor del Acordeón */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        /* Cada tarjeta desplegable */
+        details {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        details[open] {
+            border-color: #00d2ff;
+        }
+
+        /* Título con flecha */
+        summary {
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            list-style: none; /* Oculta la flecha por defecto de HTML */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+            user-select: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none; /* Oculta flecha en Safari */
+        }
+
+        /* Flecha personalizada */
+        summary::after {
+            content: "❯";
+            font-size: 0.85rem;
+            color: #00d2ff;
+            transition: transform 0.2s ease;
+        }
+
+        /* Rotación de la flecha al abrir */
+        details[open] summary::after {
+            transform: rotate(90deg);
+        }
+
+        summary:hover {
+            background-color: #21262d;
+        }
+
+        /* Contenido interno */
+        .content {
+            padding: 0 20px 20px 20px;
+            color: #c9d1d9;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+
+        /* Botón de volver */
+        .btn-back {
+            display: inline-block;
+            color: #00d2ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .btn-back:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+
     <h1>Política de Privacidad</h1>
-    <p>En cumplimiento con la Ley N° 19.628 sobre Protección de la Vida Privada de Chile, se informa a los usuarios lo siguiente:</p>
+    <p class="subtitle">En cumplimiento con la Ley N° 19.628 sobre Protección de la Vida Privada de Chile.</p>
 
-    <h2>1. Datos recolectados</h2>
-    <p>Los datos personales solicitados en el formulario (Nombre y Correo electrónico) son recopilados exclusivamente para procesar el envío automatizado de mi Currículum Vitae (CV).</p>
+    <div class="accordion">
 
-    <h2>2. Uso de la información</h2>
-    <p>Tus datos son procesados mediante integraciones seguras (Make y Gmail) con el único fin de responder a tu solicitud. <strong>No venderemos, compartiremos ni cederemos tus datos a ningún tercero.</strong></p>
+        <details open>
+            <summary>1. Datos Recolectados</summary>
+            <div class="content">
+                <p>Los datos personales solicitados en el formulario (Nombre y Correo electrónico) son recopilados exclusivamente para procesar la entrega automatizada de mi Currículum Vitae (CV).</p>
+            </div>
+        </details>
 
-    <h2>3. Derechos del usuario</h2>
-    <p>Puedes solicitar la modificación o eliminación definitiva de tus datos personales de nuestros registros en cualquier momento enviando un correo a <strong>ab.naupa@duocuc.cl</strong>.</p>
+        <details>
+            <summary>2. Uso de la Información</summary>
+            <div class="content">
+                <p>Tus datos son procesados mediante integraciones seguras (Make y Gmail) con el único fin de responder a tu solicitud. <strong>No venderemos, compartiremos ni cederemos tus datos a ningún tercero.</strong></p>
+            </div>
+        </details>
 
-    <p style="margin-top: 40px;"><a href="index.html">← Volver al sitio principal</a></p>
+        <details>
+            <summary>3. Uso de Cookies y Analítica</summary>
+            <div class="content">
+                <p>Este sitio utiliza cookies técnicas y analíticas (como Google Analytics 4) para medir el tráfico y mejorar la experiencia de navegación. No almacenamos información personal sensible mediante cookies.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>4. Derechos del Usuario</summary>
+            <div class="content">
+                <p>Puedes solicitar la modificación o eliminación definitiva de tus datos personales de nuestros registros en cualquier momento enviando un correo a <strong>ab.naupa@duocuc.cl</strong>.</p>
+            </div>
+        </details>
+
+    </div>
+
+    <a href="index.html" class="btn-back">← Volver al sitio principal</a>
+
 </body>
 </html>
