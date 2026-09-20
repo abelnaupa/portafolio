@@ -2,6 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('ai-form');
     const responseDiv = document.getElementById('form-response');
     const submitBtn = document.getElementById('btn-submit');
+    // Deshabilitar botón tras el primer clic
+const form = document.querySelector('form');
+const submitBtn = document.querySelector('.btn-primary');
+
+form.addEventListener('submit', function() {
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Enviando...';
+    
+    // Reactivar botón después de 30 segundos si se desea
+    setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Recibir CV en mi correo';
+    }, 30000);
+});
 
     // Cambia esta URL por el Webhook de MAKE cuando lo tengas configurado
     const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/278hs863s66wynlk6rx6wsmgg936tcpj';
