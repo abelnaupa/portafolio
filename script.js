@@ -2,42 +2,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('ai-form');
     const responseDiv = document.getElementById('form-response');
     const submitBtn = document.getElementById('btn-submit');
-    // Deshabilitar botón tras el primer clic
-const form = document.querySelector('form');
-const submitBtn = document.querySelector('.btn-primary');
 
-form.addEventListener('submit', function() {
-    submitBtn.disabled = true;
-    submitBtn.innerText = 'Enviando...';
-    
-    // Reactivar botón después de 30 segundos si se desea
-    setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerText = 'Recibir CV en mi correo';
-    }, 30000);
-});
-
-    // Cambia esta URL por el Webhook de MAKE cuando lo tengas configurado
+    // Webhook de MAKE (Es público y seguro de tener aquí)
     const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/278hs863s66wynlk6rx6wsmgg936tcpj';
+
+    if (!form) return;
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Estado visual de carga
+        // 1. Lectura del campo Honeypot (Anti-bots)
+        const honeypotField = document.getElementById('honeypot');
+        const honeypotValue = honeypotField ? honeypotField.value : '';
+
+        // 2. Estado visual de carga y bloqueo anti-doble clic
         submitBtn.disabled = true;
         submitBtn.innerText = 'Enviando y procesando con IA...';
         responseDiv.innerText = '';
 
+        // 3. Captura de datos
         const formData = {
             nombre: document.getElementById('nombre').value,
             email: document.getElementById('email').value,
             mensaje: document.getElementById('mensaje').value,
+            website: honeypotValue, // Campo trampa para Make
             fecha: new Date().toISOString()
         };
 
         try {
-            // Envío al webhook de MAKE
-            const response = await fetch(MAKE_WEBHOOK_URL, {
+            // 4. Envío al webhook de MAKE
+            await fetch(MAKE_WEBHOOK_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -45,19 +39,21 @@ form.addEventListener('submit', function() {
                 body: JSON.stringify(formData)
             });
 
-            // Respuesta simulada o real
+            // 5. Mensaje de éxito
             responseDiv.style.color = '#00d2ff';
-            responseDiv.innerText = '¡Mensaje recibido! El Agente de IA ha analizado tu solicitud y me notificará al instante.';
+            responseDiv.innerText = '¡Solicitud recibida! El Agente de IA está procesando el envío de mi CV a tu correo.';
             form.reset();
 
         } catch (error) {
-            console.log('Modo demostración activo');
-            responseDiv.style.color = '#00d2ff';
-            responseDiv.innerText = '¡Gracias por probar el formulario! (Mensaje recibido correctamente en modo demo).';
-            form.reset();
+            console.error('Error al conectar con el servidor:', error);
+            responseDiv.style.color = '#ff6b6b';
+            responseDiv.innerText = 'Hubo un problema al procesar la solicitud. Por favor, intenta nuevamente más tarde.';
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerText = 'Enviar a Agente Comercial';
+            // 6. Cooldown de seguridad: mantiene el botón deshabilitado 15 segundos antes de reactivarlo
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Recibir CV en mi correo';
+            }, 15000);
         }
     });
 });
