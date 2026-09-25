@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const honeypotField = document.getElementById('honeypot');
         const honeypotValue = honeypotField ? honeypotField.value : '';
 
+        // NUEVO: Lectura del token de Cloudflare Turnstile
+        const turnstileField = document.querySelector('[name="cf-turnstile-response"]');
+        const turnstileToken = turnstileField ? turnstileField.value : '';
+
+        // NUEVO: Si no se completó el captcha, no dejar enviar
+        if (!turnstileToken) {
+            responseDiv.style.color = '#ff6b6b';
+            responseDiv.innerText = 'Por favor completa la verificación de seguridad.';
+            return;
+        }
+
         // 2. Estado visual de carga y bloqueo anti-doble clic
         submitBtn.disabled = true;
         submitBtn.innerText = 'Enviando y procesando con IA...';
@@ -26,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             email: document.getElementById('email').value,
             mensaje: document.getElementById('mensaje').value,
             website: honeypotValue, // Campo trampa para Make
+            turnstileToken: turnstileToken, // NUEVO: token para validar en Make
             fecha: new Date().toISOString()
         };
 
@@ -43,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             responseDiv.style.color = '#00d2ff';
             responseDiv.innerText = '¡Solicitud recibida! El Agente de IA está procesando el envío de mi CV a tu correo.';
             form.reset();
+            if (window.turnstile) window.turnstile.reset(); // NUEVO: resetea el widget para el próximo envío
 
         } catch (error) {
             console.error('Error al conectar con el servidor:', error);
