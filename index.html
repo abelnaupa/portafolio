@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abel Naupa | AI-Driven Growth & Analytics</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -30,7 +25,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-</head>
+    
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -194,8 +191,8 @@
 </div>
                 </div>
                 <!-- Campo trampa invisible para bots -->
-<input type="text" name="website" id="honeypot" style="display:none !important;" tabindex="-1" autocomplete="off">
                 <form id="ai-form" class="contact-form">
+                 <input type="text" name="website" id="honeypot" style="display:none !important;" tabindex="-1" autocomplete="off">
                     <div class="form-group">
                         <label for="nombre">Nombre Completo</label>
                         <input type="text" id="nombre" name="nombre" required placeholder="Ej: Maria González">
@@ -208,6 +205,7 @@
                         <label for="mensaje">Detalle de tu necesidad o consulta</label>
                         <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Ej: Necesitamos automatizar la calificación de leads..."></textarea>
                     </div>
+                     <div class="cf-turnstile" data-sitekey="0x4AAAAAAFC4llNG4Z_oxNs-"></div>
                     <button type="submit" class="btn-primary btn-block" id="btn-submit">Recibir CV en mi correo </button>
                     <div id="form-response" class="form-status"></div>
                 </form>
