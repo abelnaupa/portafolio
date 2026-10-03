@@ -448,3 +448,17 @@ a.btn-linkedin:hover {
     color: #ffffff !important;
     font-weight: 700 !important;
 }
+/* Unificación total de tipografía en todo el sitio */
+html, body, button, input, textarea, select, a, span, p, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Normalización de fuentes para botones del formulario y menú */
+.btn-primary, 
+button, 
+input[type="submit"] {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+}
