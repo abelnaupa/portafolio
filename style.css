@@ -3,14 +3,15 @@
 :root {
     --bg-dark: #000000;
     --bg-card: #0a0a0a;
-    --border-color: #171717;
+    --border-color: #1a1a1a;
     --primary: #3b82f6;
     --primary-hover: #2563eb;
     --accent: #3b82f6;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
+    --text-main: #ffffff;       /* Blanco puro para Títulos */
+    --text-body: #cbd5e1;       /* Gris claro brillante e ideal para párrafos */
+    --text-muted: #64748b;      /* Gris medio para etiquetas/metadatos */
     --bg-light: #0a0a0a;
-    --text-dark: #f8fafc;
+    --text-dark: #ffffff;
 }
 
 /* 1. Selector global arreglado (con asterisco) */
@@ -458,4 +459,26 @@ a.btn-linkedin:hover {
 .nav-links li a.btn-primary:link {
     color: #ffffff !important;
     font-weight: 700 !important;
+}
+/* Corrección de jerarquía visual y texto en tarjetas */
+.about-card h3,
+.stack-card h3,
+.project-card h3 {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Línea separadora sutil */
+    letter-spacing: 0.05em;
+}
+
+.about-card p,
+.stack-card p,
+.project-card p,
+.hero p {
+    color: var(--text-body) !important; /* Gris claro de alta legibilidad */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 400;
 }
