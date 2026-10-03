@@ -4,71 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad | Abel Naupa</title>
+    <!-- Fuentes oficial del sitio principal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-card: #0a0a0a;
+            --border-color: #171717;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --text-main: #ffffff;
+            --text-body: #cbd5e1;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
         body { 
-            font-family: system-ui, -apple-system, sans-serif; 
-            background-color: #0d1117; 
-            color: #e6edf3; 
-            padding: 40px 20px; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            padding: 60px 20px; 
             max-width: 800px; 
             margin: 0 auto; 
             line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 24px 24px;
         }
 
         h1 { 
-            color: #00d2ff; 
-            margin-bottom: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-main); 
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
         }
 
         .subtitle {
-            color: #8b949e;
-            margin-bottom: 30px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
         }
 
         /* Contenedor del Acordeón */
         .accordion {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             margin-bottom: 40px;
         }
 
-        /* Cada tarjeta desplegable */
+        /* Tarjeta desplegable Matte */
         details {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
             overflow: hidden;
-            transition: all 0.2s ease;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
         }
 
         details[open] {
-            border-color: #00d2ff;
+            border-color: rgba(59, 130, 246, 0.4);
         }
 
         /* Título con flecha */
         summary {
-            padding: 16px 20px;
-            font-weight: 600;
-            font-size: 1.05rem;
+            padding: 20px 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
-            list-style: none; /* Oculta la flecha por defecto de HTML */
+            list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #ffffff;
+            color: var(--text-main);
             user-select: none;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
         }
 
         summary::-webkit-details-marker {
-            display: none; /* Oculta flecha en Safari */
+            display: none;
         }
 
-        /* Flecha personalizada */
+        /* Flecha personalizada con el color primario */
         summary::after {
             content: "❯";
-            font-size: 0.85rem;
-            color: #00d2ff;
+            font-size: 0.8rem;
+            color: var(--primary);
             transition: transform 0.2s ease;
         }
 
@@ -78,28 +115,45 @@
         }
 
         summary:hover {
-            background-color: #21262d;
+            background-color: rgba(255, 255, 255, 0.02);
         }
 
         /* Contenido interno */
         .content {
-            padding: 0 20px 20px 20px;
-            color: #c9d1d9;
+            padding: 0 24px 20px 24px;
+            color: var(--text-body);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.95rem;
+            padding-top: 16px;
         }
 
-        /* Botón de volver */
+        .content strong {
+            color: #ffffff;
+        }
+
+        /* Botón de volver con estilo industrial */
         .btn-back {
-            display: inline-block;
-            color: #00d2ff;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-main);
             text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.2s;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            border-radius: 2px;
+            transition: all 0.2s ease;
         }
 
         .btn-back:hover {
-            text-decoration: underline;
+            border-color: #333333;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--primary);
         }
     </style>
 </head>
