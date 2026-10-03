@@ -441,3 +441,10 @@ a.btn-linkedin:hover {
     }
     .contact-wrapper { padding: 25px; }
 }
+/* Corrección de contraste para el botón de Solicitar CV en el menú */
+.nav-links li a.btn-primary,
+.nav-links li a.btn-primary:visited,
+.nav-links li a.btn-primary:link {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
