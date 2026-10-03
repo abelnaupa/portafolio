@@ -13,11 +13,12 @@
     --text-dark: #f8fafc;
 }
 
-{
+/* 1. Selector global arreglado (con asterisco) */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 body {
@@ -54,7 +55,7 @@ body {
 }
 
 .logo {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
     font-size: 1.1rem;
     font-weight: 700;
     color: #ffffff !important;
@@ -86,6 +87,7 @@ body {
 .nav-links li a:visited,
 .nav-links li a:active,
 .nav-links li a:link {
+    font-family: 'Space Grotesk', sans-serif !important;
     color: var(--text-muted) !important;
     text-decoration: none !important;
     font-size: 0.75rem;
@@ -99,8 +101,11 @@ body {
     color: var(--text-main) !important;
 }
 
-/* Botones con bordes rectos estilo Matte Instrument */
-.btn-primary {
+/* Botones con estilo uniforme */
+.btn-primary, 
+button, 
+input[type="submit"] {
+    font-family: 'Space Grotesk', sans-serif !important;
     background: var(--primary);
     color: #ffffff !important;
     padding: 12px 24px;
@@ -116,11 +121,14 @@ body {
     display: inline-block;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+button:hover,
+input[type="submit"]:hover {
     background: var(--primary-hover);
 }
 
 .btn-secondary {
+    font-family: 'Space Grotesk', sans-serif !important;
     border: 1px solid var(--border-color);
     background: transparent;
     color: var(--text-main);
@@ -140,7 +148,7 @@ body {
     background: rgba(255, 255, 255, 0.03);
 }
 
-/* Hero Section estilo tarjeta matte */
+/* Hero Section */
 .hero {
     padding: 140px 0 60px;
     text-align: left;
@@ -168,7 +176,7 @@ body {
 }
 
 .hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
     font-size: 3.5rem;
     line-height: 1.05;
     margin: 15px 0 25px;
@@ -203,7 +211,7 @@ body {
 }
 
 .section-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -213,7 +221,7 @@ body {
 }
 
 .section-title::after {
-    display: none; /* Se elimina la barra inferior previa para mantener el estilo limpio */
+    display: none;
 }
 
 /* About Section */
@@ -231,7 +239,7 @@ body {
 }
 
 .about-card h3 { 
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
     margin-bottom: 15px; 
     color: #ffffff;
     text-transform: uppercase;
@@ -266,7 +274,7 @@ body {
 
 .stack-card .icon { font-size: 1.8rem; margin-bottom: 15px; color: var(--primary); }
 .stack-card h3 { 
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
     margin-bottom: 10px; 
     color: #ffffff; 
     text-transform: uppercase;
@@ -300,7 +308,7 @@ body {
 }
 
 .project-card h3 { 
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
     font-size: 1.3rem; 
     margin-bottom: 6px; 
     color: #ffffff;
@@ -346,7 +354,7 @@ body {
 }
 
 .contact-info h2 { 
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
     font-size: 2.2rem; 
     margin-bottom: 15px; 
     color: #ffffff;
@@ -367,6 +375,7 @@ body {
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 
 .form-group label { 
+    font-family: 'Space Grotesk', sans-serif !important;
     font-size: 0.75rem; 
     font-weight: 700;
     text-transform: uppercase;
@@ -381,7 +390,7 @@ body {
     border-radius: 2px;
     color: white;
     outline: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif !important;
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -395,6 +404,7 @@ a.btn-linkedin,
 a.btn-linkedin:visited,
 a.btn-linkedin:active,
 a.btn-linkedin:link {
+    font-family: 'Space Grotesk', sans-serif !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 10px !important;
@@ -441,24 +451,11 @@ a.btn-linkedin:hover {
     }
     .contact-wrapper { padding: 25px; }
 }
+
 /* Corrección de contraste para el botón de Solicitar CV en el menú */
 .nav-links li a.btn-primary,
 .nav-links li a.btn-primary:visited,
 .nav-links li a.btn-primary:link {
     color: #ffffff !important;
     font-weight: 700 !important;
-}
-/* Unificación total de tipografía en todo el sitio */
-html, body, button, input, textarea, select, a, span, p, h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-}
-
-/* Normalización de fuentes para botones del formulario y menú */
-.btn-primary, 
-button, 
-input[type="submit"] {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
 }
